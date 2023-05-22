@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>1) Percorra o objeto clientes e mostre o nome da cada cliente da seguinte maneira:
+        “ultimoSobrenome, primeiroNome”;</p>
+    <button onclick="mostraNome()"> Ordenar Nomes </button>
+    <br></br>
+    <div id="Nomes"></div>
+
+    <p>2) Formate a variável “numero” para o seguinte formato: “(XX)_X_XXXX-XXXX”;</p>  
+
+    <button onclick="formatarNumero()"> Formatar Numero </button>
+    <br></br>
+    <div id="Numero"></div>
+    <script>
+
+        var clientes = [
+            {
+                'id': 1,
+                'nome': 'Luis Santos Silveira',
+                'idade': 18
+            },
+            {
+                'id': 2,
+                'nome': 'Ricardo Lopes Alves',
+                'idade': 30
+            },
+            {
+                'id': 3,
+                'nome': 'Gustavo Silva Junior',
+                'idade': 26
+            }
+        ];
+
+        var numero = "5(1)9-876-543-21";
+
+        function mostraNome() {
+            const div = document.getElementById("Nomes");
+            div.innerText = '';
+
+            clientes.forEach(cliente => {
+
+                var nomeSeparado = cliente.nome.split(" ")
+                const tamanho = nomeSeparado.length;
+                div.innerHTML += nomeSeparado[tamanho - 1] + ', ' + nomeSeparado[0] + '<br>';
+            })
+        }
+        function formatarNumero() {
+            const div = document.getElementById("Numero");
+            const digitos = numero.replace(/\D/g, '');
+
+            div.innerText = '';
+
+            const formatado = digitos.replace(
+                /^(\d{2})(\d{4,5})(\d{4})$/,
+                '($1) $2-$3'
+            )
+
+            div.innerText += formatado;
+
+        }
+
+    </script>
+</body>
+
+</html>

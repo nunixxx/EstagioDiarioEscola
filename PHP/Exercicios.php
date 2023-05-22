@@ -9,20 +9,15 @@ $cliente2->nome = $nomes[1];
 $cliente3 = new stdClass();
 $cliente3->nome = $nomes[2];
 $arrayDeClientes = [$cliente1, $cliente2, $cliente3];
-?>
-    <br>
-    <?php
-echo ("\n".$arrayDeClientes[1]->nome);
+
+echo ("<br>".$arrayDeClientes[1]->nome);
 
 ?>
 <br><br>
-
 <?php
 
 echo('2) Utilize a estrutura de dados $arrayDeNascimento para adicionar na estrutura $arrayDeClientes a data de nascimento de cada cliente.');
-?>
-    <br>
-    <?php
+
 
 $arrayDeNascimento = [
     'Francisco Souza' => '10-12-1996',
@@ -49,29 +44,22 @@ $arrayDeNascimento = [
 
     foreach ($arrayDeClientes as $cliente) {
         $nome = $cliente->nome;
-        if (isset($arrayDeNascimento[$nome])) {
             $cliente->nascimento = $arrayDeNascimento[$nome];
-        }
     }
     for($i = 0; $i<count($arrayDeClientes) ; $i++){
-        echo ("\n".$arrayDeClientes[$i]->nome);
+        echo ("<br>".$arrayDeClientes[$i]->nome);
         
         echo ("   " . $arrayDeClientes[$i]->nascimento);
-        ?>
-    <br>
-    <?php
+        
 
     }
 
 ?>
-
 <br><br>
 <?php
 
 echo('3) Faça a ordenação e impressão da estrutura $arrayDeClientes resultante do exercício 2 pela data de nascimento (pode ser ascendente ou descendente).');
-?>
-    <br>
-    <?php
+
 $a = $cliente;
 $cont = 0;
 foreach($arrayDeClientes as $cliente){
@@ -92,11 +80,9 @@ for($i = 0; $i<count($arrayDeClientes) ; $i++)
 }
 for($i = 0; $i<count($arrayDeClientes) ; $i++){
     
-    echo ("\n".$arrayDeClientes[$i]->nome . " nascido em ");
+    echo ("<br>".$arrayDeClientes[$i]->nome . " nascido em ");
     
     echo $arrayDeClientes[$i]->nascimento->format('Y-m-d');
-    ?>
-    <br>
-    <?php
+    
 }
 ?>
